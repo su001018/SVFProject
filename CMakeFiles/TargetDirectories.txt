@@ -1,0 +1,8 @@
+/home/test/workspace/code/pointerAnalysis/CMakeFiles/rebuild_cache.dir
+/home/test/workspace/code/pointerAnalysis/CMakeFiles/acc_gen.dir
+/home/test/workspace/code/pointerAnalysis/CMakeFiles/edit_cache.dir
+/home/test/workspace/code/pointerAnalysis/CMakeFiles/omp_gen.dir
+/home/test/workspace/code/pointerAnalysis/CMakeFiles/intrinsics_gen.dir
+/home/test/workspace/code/pointerAnalysis/src/CMakeFiles/rebuild_cache.dir
+/home/test/workspace/code/pointerAnalysis/src/CMakeFiles/edit_cache.dir
+/home/test/workspace/code/pointerAnalysis/src/CMakeFiles/svf-util.dir

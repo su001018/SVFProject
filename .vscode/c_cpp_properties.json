@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${SVF_DIR}/svf/include",
+                "${SVF_DIR}/svf-llvm/include",
+                "${SVF_DIR}/Release-build/include",
+                "${LLVM_DIR}/include",
+                "${workspaceFolder}/src/include"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+            "compilerPath": "${LLVM_DIR}/bin/clang++"
+        }
+    ],
+    "version": 4
+}
