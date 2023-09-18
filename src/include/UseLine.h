@@ -11,11 +11,13 @@ class UseLine
     const VFGNode *vfgNode;
     SVFG *vfg;
     Map<VFGNode *, UseLine *> children;
+    string value;
     UseLine(const VFGNode *vfgNode, SVFG *vfg)
     {
         cout << "UseLine: " << vfgNode->getId() << endl;
         this->vfgNode = vfgNode;
         this->vfg = vfg;
+        this->value = vfgNode->toString();
     }
     void print(int deep)
     {
@@ -26,9 +28,8 @@ class UseLine
         {
             rawstr << "-";
         }
-        rawstr << this->vfgNode->toString() << endl;
+        rawstr << value << endl;
         cout << endl << rawstr.str() << endl;
-        // cout << endl << this->vfgNode->toString() << endl;
         for (Map<VFGNode *, UseLine *>::iterator it = children.begin(), eit = children.end(); it != eit; it++)
         {
             it->second->print(deep + 1);
@@ -46,6 +47,16 @@ class UseLine
                 UseLine *child = new UseLine(node, vfg);
                 children[node] = child;
                 child->build();
+            }
+        }
+        if (vfgNode->getNodeKind() == VFGNode::AParm)
+        {
+            if (const ActualParmSVFGNode *actualParamNode = SVFUtil::dyn_cast<ActualParmSVFGNode>(vfgNode))
+            {
+                const CallICFGNode *callICFGNode = actualParamNode->getCallSite();
+                const SVFInstruction *instruction = callICFGNode->getCallSite();
+                value += "\n";
+                value += instruction->toString();
             }
         }
     }

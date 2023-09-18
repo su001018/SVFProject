@@ -196,15 +196,15 @@ int main(int argc, char **argv)
     // clean up memory
     // delete vfg;
 
-    AndersenPTA *andersenPTA = new AndersenPTA(pag);
-    andersenPTA->analyze();
-    andersenPTA->dump_constraintGraph("consG");
+    Andersen *andersen = new Andersen(pag);
+    andersen->analyze();
+    andersen->getConstraintGraph()->dump("consG");
 
     // get all address
     // andersenPTA->getAllAddr();
 
     SVFGBuilder svfBuilder;
-    SVFG *svfg = svfBuilder.buildFullSVFG(andersenPTA);
+    SVFG *svfg = svfBuilder.buildFullSVFG(andersen);
     svfg->dump("svfg");
 
     Set<const SVFGNode *> addrNodes = getAddr(svfg);
