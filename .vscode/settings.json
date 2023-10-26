@@ -86,7 +86,8 @@
         "utility": "cpp",
         "shared_mutex": "cpp",
         "thread": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "*.inc": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

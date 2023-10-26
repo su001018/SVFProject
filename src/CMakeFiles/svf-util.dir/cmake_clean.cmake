@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "../Debug-build/svf-util"
   "../Debug-build/svf-util.pdb"
+  "CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o"
   "CMakeFiles/svf-util.dir/lib/test.cpp.o"
 )
 

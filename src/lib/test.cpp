@@ -1,7 +1,11 @@
 #include "AndersenPTA.h"
 #include "Graphs/SVFG.h"
+#include "SABER/DoubleFreeChecker.h"
+#include "SABER/SaberCheckerAPI.h"
 #include "SVF-LLVM/LLVMUtil.h"
 #include "SVF-LLVM/SVFIRBuilder.h"
+#include "UAF/UseAfterFreeChecker.h"
+#include "UAF/UseProgSlice.h"
 #include "UseLine.h"
 #include "Util/Options.h"
 #include "WPA/Andersen.h"
@@ -149,7 +153,6 @@ Set<UseLine *> getUseLines(Set<const SVFGNode *> svfgNodes, SVFG *vfg)
 
 int main(int argc, char **argv)
 {
-
     int arg_num = 0;
     char **arg_value = new char *[argc];
     std::vector<std::string> moduleNameVec;
@@ -167,63 +170,15 @@ int main(int argc, char **argv)
     SVFIR *pag = builder.build();
     pag->dump("pag");
 
-    /// Create Andersen's pointer analysis
-    // Andersen* ander = AndersenWaveDiff::createAndersenWaveDiff(pag);
-    // printf("Andersen build ssuccess!");
-    /// Query aliases
-    /// aliasQuery(ander,value1,value2);
-
-    /// Print points-to information
-    /// printPts(ander, value1);
-
-    /// Call Graph
-    // PTACallGraph* callgraph = ander->getPTACallGraph();
-    // printf("PTACallGraph build ssuccess!");
-    /// ICFG
-    // ICFG* icfg = pag->getICFG();
-    // printf("ICFG build ssuccess!");
-    /// Value-Flow Graph (VFG)
-    // VFG* vfg = new VFG(callgraph);
-    // printf("VFG build ssuccess!");
-    /// Sparse value-flow graph (SVFG)
-
-    /// Collect uses of an LLVM Value
-    /// traverseOnVFG(svfg, value);
-
-    /// Collect all successor nodes on ICFG
-    /// traverseOnICFG(icfg, value);
-
-    // clean up memory
-    // delete vfg;
-
-    Andersen *andersen = new Andersen(pag);
-    andersen->analyze();
-    andersen->getConstraintGraph()->dump("consG");
-
-    // get all address
-    // andersenPTA->getAllAddr();
+    Andersen *ander = AndersenWaveDiff::createAndersenWaveDiff(pag);
 
     SVFGBuilder svfBuilder;
-    SVFG *svfg = svfBuilder.buildFullSVFG(andersen);
-    svfg->dump("svfg");
+    SVFG *svfg = svfBuilder.buildFullSVFG(ander);
 
-    Set<const SVFGNode *> addrNodes = getAddr(svfg);
-    Set<UseLine *> useLines = getUseLines(addrNodes, svfg);
-    for (UseLine *useline : useLines)
-    {
-        useline->build();
-        useline->print(1);
-    }
+    cout << endl;
 
-    // OrderedNodeSet nodeIds = andersenPTA->getPAG()->getAllValidPtrs();
-    // for (NodeID nodeId : nodeIds)
-    // {
-    //     PAGNode *pagNode = andersenPTA->getPAG()->getGNode(nodeId);
-    //     if (pagNode->getIncomingEdges(PAGEdge::Addr).size())
-    //     {
-    //         traverseOnVFG(svfg, pagNode);
-    //     }
-    // }
+    UseAfterFreeChecker uafChecker;
+    uafChecker.runOnModule(pag);
 
     AndersenWaveDiff::releaseAndersenWaveDiff();
 

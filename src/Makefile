@@ -125,6 +125,33 @@ svf-util/fast:
 	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/build
 .PHONY : svf-util/fast
 
+lib/UAF/UseAfterFreeChecker.o: lib/UAF/UseAfterFreeChecker.cpp.o
+
+.PHONY : lib/UAF/UseAfterFreeChecker.o
+
+# target to build an object file
+lib/UAF/UseAfterFreeChecker.cpp.o:
+	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o
+.PHONY : lib/UAF/UseAfterFreeChecker.cpp.o
+
+lib/UAF/UseAfterFreeChecker.i: lib/UAF/UseAfterFreeChecker.cpp.i
+
+.PHONY : lib/UAF/UseAfterFreeChecker.i
+
+# target to preprocess a source file
+lib/UAF/UseAfterFreeChecker.cpp.i:
+	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.i
+.PHONY : lib/UAF/UseAfterFreeChecker.cpp.i
+
+lib/UAF/UseAfterFreeChecker.s: lib/UAF/UseAfterFreeChecker.cpp.s
+
+.PHONY : lib/UAF/UseAfterFreeChecker.s
+
+# target to generate assembly for a file
+lib/UAF/UseAfterFreeChecker.cpp.s:
+	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.s
+.PHONY : lib/UAF/UseAfterFreeChecker.cpp.s
+
 lib/test.o: lib/test.cpp.o
 
 .PHONY : lib/test.o
@@ -161,6 +188,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... svf-util"
+	@echo "... lib/UAF/UseAfterFreeChecker.o"
+	@echo "... lib/UAF/UseAfterFreeChecker.i"
+	@echo "... lib/UAF/UseAfterFreeChecker.s"
 	@echo "... lib/test.o"
 	@echo "... lib/test.i"
 	@echo "... lib/test.s"
