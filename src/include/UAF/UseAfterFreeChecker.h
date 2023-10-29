@@ -37,6 +37,31 @@ class UseAfterFreeChecker : public LeakChecker
         _curSlice->addToUses(node);
         addToCurForwardSlice(node);
     }
+    inline void addSinkToCurSlice(const SVFGNode *node)
+    {
+        _curSlice->addToSinks(node);
+        addToCurForwardSlice(node);
+    }
+    inline bool isInCurForwardSlice(const SVFGNode *node)
+    {
+        return _curSlice->inForwardSlice(node);
+    }
+    inline bool isInCurBackwardSlice(const SVFGNode *node)
+    {
+        return _curSlice->inBackwardSlice(node);
+    }
+    inline void addToCurForwardSlice(const SVFGNode *node)
+    {
+        _curSlice->addToForwardSlice(node);
+    }
+    inline void addToCurBackwardSlice(const SVFGNode *node)
+    {
+        _curSlice->addToBackwardSlice(node);
+    }
+    inline bool isUse(const SVFGNode *node)
+    {
+        return getUses().find(node) != getUses().end();
+    }
     inline const SVFGNodeSet &getUses() const
     {
         return uses;
@@ -53,6 +78,43 @@ class UseAfterFreeChecker : public LeakChecker
     {
         uses.insert(node);
     }
+    inline UseProgSlice *getCurSlice()
+    {
+        return _curSlice;
+    }
+
+  protected:
+    void reportBug(UseProgSlice *slice);
+    /// Forward traverse
+    inline void FWProcessCurNode(const DPIm &item) override
+    {
+        const SVFGNode *node = getNode(item.getCurNodeID());
+        if (isSink(node))
+        {
+            addSinkToCurSlice(node);
+            _curSlice->setPartialReachable();
+        }
+        if (isUse(node))
+        {
+            addUseToCurSlice(node);
+        }
+        else
+            addToCurForwardSlice(node);
+    }
+    /// Backward traverse
+    inline void BWProcessCurNode(const DPIm &item) override
+    {
+        const SVFGNode *node = getNode(item.getCurNodeID());
+        if (isInCurForwardSlice(node))
+        {
+            addToCurBackwardSlice(node);
+        }
+    }
+
+    /// Propagate information forward by matching context
+    void FWProcessOutgoingEdge(const DPIm &item, SVFGEdge *edge) override;
+    /// Propagate information backward without matching context, as forward analysis already did it
+    void BWProcessIncomingEdge(const DPIm &item, SVFGEdge *edge) override;
 
   private:
     UseProgSlice *_curSlice;

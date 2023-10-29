@@ -9,6 +9,7 @@ class UseProgSlice : public ProgSlice
   public:
     typedef Set<const SVFGNode *> SVFGNodeSet;
     typedef SVFGNodeSet::const_iterator SVFGNodeSetIter;
+    typedef Map<int, SVFGNodeSet> SVFGIdToSet;
     UseProgSlice(const SVFGNode *src, SaberCondAllocator *pa, const SVFG *graph) : ProgSlice(src, pa, graph)
     {
     }
@@ -31,9 +32,14 @@ class UseProgSlice : public ProgSlice
     {
         return uses.end();
     }
+    void reportUAF();
+    void getPath(const SVFGNode *node);
+    bool inPath(const SVFGNode *src, const SVFGNode *dst);
+    void putUAFResult(const SVFGNode *m, const SVFGNode *f, const SVFGNode *u);
 
   private:
     SVFGNodeSet uses;
+    SVFGIdToSet path;
 };
 
 #endif

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/test/workspace/code/pointerAnalysis/src/lib/UAF/UseAfterFreeChecker.cpp" "/home/test/workspace/code/pointerAnalysis/src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o"
+  "/home/test/workspace/code/pointerAnalysis/src/lib/UAF/UseProgSlice.cpp" "/home/test/workspace/code/pointerAnalysis/src/CMakeFiles/svf-util.dir/lib/UAF/UseProgSlice.cpp.o"
   "/home/test/workspace/code/pointerAnalysis/src/lib/test.cpp" "/home/test/workspace/code/pointerAnalysis/src/CMakeFiles/svf-util.dir/lib/test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

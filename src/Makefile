@@ -152,6 +152,33 @@ lib/UAF/UseAfterFreeChecker.cpp.s:
 	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.s
 .PHONY : lib/UAF/UseAfterFreeChecker.cpp.s
 
+lib/UAF/UseProgSlice.o: lib/UAF/UseProgSlice.cpp.o
+
+.PHONY : lib/UAF/UseProgSlice.o
+
+# target to build an object file
+lib/UAF/UseProgSlice.cpp.o:
+	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/lib/UAF/UseProgSlice.cpp.o
+.PHONY : lib/UAF/UseProgSlice.cpp.o
+
+lib/UAF/UseProgSlice.i: lib/UAF/UseProgSlice.cpp.i
+
+.PHONY : lib/UAF/UseProgSlice.i
+
+# target to preprocess a source file
+lib/UAF/UseProgSlice.cpp.i:
+	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/lib/UAF/UseProgSlice.cpp.i
+.PHONY : lib/UAF/UseProgSlice.cpp.i
+
+lib/UAF/UseProgSlice.s: lib/UAF/UseProgSlice.cpp.s
+
+.PHONY : lib/UAF/UseProgSlice.s
+
+# target to generate assembly for a file
+lib/UAF/UseProgSlice.cpp.s:
+	cd /home/test/workspace/code/pointerAnalysis && $(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/lib/UAF/UseProgSlice.cpp.s
+.PHONY : lib/UAF/UseProgSlice.cpp.s
+
 lib/test.o: lib/test.cpp.o
 
 .PHONY : lib/test.o
@@ -191,6 +218,9 @@ help:
 	@echo "... lib/UAF/UseAfterFreeChecker.o"
 	@echo "... lib/UAF/UseAfterFreeChecker.i"
 	@echo "... lib/UAF/UseAfterFreeChecker.s"
+	@echo "... lib/UAF/UseProgSlice.o"
+	@echo "... lib/UAF/UseProgSlice.i"
+	@echo "... lib/UAF/UseProgSlice.s"
 	@echo "... lib/test.o"
 	@echo "... lib/test.i"
 	@echo "... lib/test.s"
