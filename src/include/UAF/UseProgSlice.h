@@ -36,6 +36,7 @@ class UseProgSlice : public ProgSlice
     void getPath(const SVFGNode *node);
     bool inPath(const SVFGNode *src, const SVFGNode *dst);
     void putUAFResult(const SVFGNode *m, const SVFGNode *f, const SVFGNode *u);
+    bool isBefore(const SVFGNode *src,const SVFGNode *dst);
 
   private:
     SVFGNodeSet uses;

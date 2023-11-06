@@ -176,12 +176,12 @@ CMakeFiles/intrinsics_gen.dir/clean:
 src/CMakeFiles/svf-util.dir/all:
 	$(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/depend
 	$(MAKE) -f src/CMakeFiles/svf-util.dir/build.make src/CMakeFiles/svf-util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/test/workspace/code/pointerAnalysis/CMakeFiles --progress-num=1,2,3 "Built target svf-util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/test/workspace/code/pointerAnalysis/CMakeFiles --progress-num=1,2,3,4 "Built target svf-util"
 .PHONY : src/CMakeFiles/svf-util.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/svf-util.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/test/workspace/code/pointerAnalysis/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/test/workspace/code/pointerAnalysis/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/svf-util.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/test/workspace/code/pointerAnalysis/CMakeFiles 0
 .PHONY : src/CMakeFiles/svf-util.dir/rule

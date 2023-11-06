@@ -170,10 +170,14 @@ int main(int argc, char **argv)
     SVFIR *pag = builder.build();
     pag->dump("pag");
 
+    ICFG *icfg = pag->getICFG();
+    icfg->dump("icfg");
+
     Andersen *ander = AndersenWaveDiff::createAndersenWaveDiff(pag);
 
     SVFGBuilder svfBuilder;
     SVFG *svfg = svfBuilder.buildFullSVFG(ander);
+    svfg->dump("svfg");
 
     cout << endl;
 
