@@ -10,6 +10,8 @@ class UseProgSlice : public ProgSlice
     typedef Set<const SVFGNode *> SVFGNodeSet;
     typedef SVFGNodeSet::const_iterator SVFGNodeSetIter;
     typedef Map<int, SVFGNodeSet> SVFGIdToSet;
+    typedef List<const ICFGNode *> ICFGNodeList;
+    typedef List<const SVFGNode *> SVFGNodeList;
     UseProgSlice(const SVFGNode *src, SaberCondAllocator *pa, const SVFG *graph) : ProgSlice(src, pa, graph)
     {
     }
@@ -36,7 +38,10 @@ class UseProgSlice : public ProgSlice
     void getPath(const SVFGNode *node);
     bool inPath(const SVFGNode *src, const SVFGNode *dst);
     void putUAFResult(const SVFGNode *m, const SVFGNode *f, const SVFGNode *u);
-    bool isBefore(const SVFGNode *src,const SVFGNode *dst);
+    bool isBefore(const SVFGNode *src, const SVFGNode *dst, const SVFGNode *def);
+    bool isNotRedefine(const ICFGNode *src, const ICFGNode *dst, const SVFGNode *def);
+    // get all compare nodes which arrive dst
+    SVFGNodeList getCompareNodeList(const SVFGNode *dst);
 
   private:
     SVFGNodeSet uses;

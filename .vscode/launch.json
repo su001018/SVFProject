@@ -9,7 +9,11 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Debug-build/svf-util",
-            "args": ["example.ll"],
+            "args": [
+                // "CVE/CVE-2018-10685/stream.ll"
+                "CVE/example.ll"
+                // "CVE/CVE-2018-11496/stream.ll"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

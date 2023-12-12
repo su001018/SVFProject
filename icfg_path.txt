@@ -1,0 +1,318 @@
+path start!
+node: IntraICFGNode28 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+CopyStmt: [Var92 <-- Var91]	
+   %5 = bitcast %struct.Data* %4 to i8*, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: CallICFGNode29 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode30 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode31 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+StoreStmt: [Var85 <-- Var0]	
+   store %struct.Data* null, %struct.Data** %2, align 8, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode32 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+BranchStmt: [ Unconditional branch]
+Successor 0 ICFGNode33   
+   br label %6, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode33 {fun: cleanup}
+GepStmt: [Var99 <-- Var42]	
+   %7 = getelementptr inbounds [16 x i8], [16 x i8]* @.str.2, i32 0, i32 0 
+node: CallICFGNode34 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode35 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode36 {fun: cleanup{ "ln": 18, "cl": 1, "fl": "example.c" }}
+   ret void, !dbg !27 { "ln": 18, "cl": 1, "fl": "example.c" }
+node: FunExitICFGNode37 {fun: cleanup}
+node: RetICFGNode66 {fun: main{ "ln": 33, "cl": 9, "fl": "example.c" }}
+node: CallICFGNode68 {fun: main{ "ln": 34, "cl": 9, "fl": "example.c" }}
+node: FunEntryICFGNode1 {fun: printSomething{ "ln": 10, "file": "./example.h" }}
+node: IntraICFGNode2 {fun: printSomething}
+GepStmt: [Var49 <-- Var38]	
+   %1 = getelementptr inbounds [19 x i8], [19 x i8]* @.str, i32 0, i32 0 
+node: CallICFGNode3 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: RetICFGNode4 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: IntraICFGNode5 {fun: printSomething{ "ln": 13, "cl": 1, "fl": "./example.h" }}
+   ret void, !dbg !21 { "ln": 13, "cl": 1, "fl": "./example.h" }
+node: FunExitICFGNode6 {fun: printSomething}
+node: RetICFGNode64 {fun: main{ "ln": 37, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode67 {fun: main{ "ln": 38, "cl": 17, "fl": "example.c" }}
+LoadStmt: [Var146 <-- Var115]	
+   %14 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !39 { "ln": 38, "cl": 17, "fl": "example.c" }
+node: CallICFGNode70 {fun: main{ "ln": 38, "cl": 5, "fl": "example.c" }}
+CallPE: [Var60 <-- Var146]	
+   call void @doSomething(%struct.Data* %14), !dbg !40 { "ln": 38, "cl": 5, "fl": "example.c" }
+node: FunEntryICFGNode7 {fun: doSomething{ "ln": 8, "file": "example.c" }}
+node: IntraICFGNode8 {fun: doSomething{ "ln": 8, "fl": "example.c" }}
+AddrStmt: [Var61 <-- Var62]	
+   %2 = alloca %struct.Data*, align 8 { "ln": 8, "fl": "example.c" }
+node: IntraICFGNode9 {fun: doSomething}
+StoreStmt: [Var61 <-- Var60]	
+   store %struct.Data* %0, %struct.Data** %2, align 8 
+node: IntraICFGNode10 {fun: doSomething{ "ln": 10, "cl": 46, "fl": "example.c" }}
+LoadStmt: [Var65 <-- Var61]	
+   %3 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !21 { "ln": 10, "cl": 46, "fl": "example.c" }
+node: IntraICFGNode11 {fun: doSomething{ "ln": 10, "cl": 52, "fl": "example.c" }}
+GepStmt: [Var66 <-- Var65]	
+   %4 = getelementptr inbounds %struct.Data, %struct.Data* %3, i32 0, i32 0, !dbg !22 { "ln": 10, "cl": 52, "fl": "example.c" }
+node: IntraICFGNode12 {fun: doSomething{ "ln": 10, "cl": 52, "fl": "example.c" }}
+LoadStmt: [Var67 <-- Var66]	
+   %5 = load i32, i32* %4, align 8, !dbg !22 { "ln": 10, "cl": 52, "fl": "example.c" }
+node: IntraICFGNode13 {fun: doSomething}
+GepStmt: [Var68 <-- Var40]	
+   %6 = getelementptr inbounds [30 x i8], [30 x i8]* @.str.1, i32 0, i32 0 
+node: CallICFGNode14 {fun: doSomething{ "ln": 10, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode15 {fun: doSomething{ "ln": 10, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode16 {fun: doSomething{ "ln": 11, "cl": 5, "fl": "example.c" }}
+LoadStmt: [Var70 <-- Var61]	
+   %8 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !24 { "ln": 11, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode17 {fun: doSomething{ "ln": 11, "cl": 11, "fl": "example.c" }}
+GepStmt: [Var71 <-- Var70]	
+   %9 = getelementptr inbounds %struct.Data, %struct.Data* %8, i32 0, i32 1, !dbg !25 { "ln": 11, "cl": 11, "fl": "example.c" }
+path end!
+path start!
+node: IntraICFGNode28 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+CopyStmt: [Var92 <-- Var91]	
+   %5 = bitcast %struct.Data* %4 to i8*, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: CallICFGNode29 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode30 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode31 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+StoreStmt: [Var85 <-- Var0]	
+   store %struct.Data* null, %struct.Data** %2, align 8, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode32 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+BranchStmt: [ Unconditional branch]
+Successor 0 ICFGNode33   
+   br label %6, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode33 {fun: cleanup}
+GepStmt: [Var99 <-- Var42]	
+   %7 = getelementptr inbounds [16 x i8], [16 x i8]* @.str.2, i32 0, i32 0 
+node: CallICFGNode34 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode35 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode36 {fun: cleanup{ "ln": 18, "cl": 1, "fl": "example.c" }}
+   ret void, !dbg !27 { "ln": 18, "cl": 1, "fl": "example.c" }
+node: FunExitICFGNode37 {fun: cleanup}
+node: RetICFGNode66 {fun: main{ "ln": 33, "cl": 9, "fl": "example.c" }}
+node: CallICFGNode68 {fun: main{ "ln": 34, "cl": 9, "fl": "example.c" }}
+node: FunEntryICFGNode1 {fun: printSomething{ "ln": 10, "file": "./example.h" }}
+node: IntraICFGNode2 {fun: printSomething}
+GepStmt: [Var49 <-- Var38]	
+   %1 = getelementptr inbounds [19 x i8], [19 x i8]* @.str, i32 0, i32 0 
+node: CallICFGNode3 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: RetICFGNode4 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: IntraICFGNode5 {fun: printSomething{ "ln": 13, "cl": 1, "fl": "./example.h" }}
+   ret void, !dbg !21 { "ln": 13, "cl": 1, "fl": "./example.h" }
+node: FunExitICFGNode6 {fun: printSomething}
+node: RetICFGNode64 {fun: main{ "ln": 37, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode67 {fun: main{ "ln": 38, "cl": 17, "fl": "example.c" }}
+LoadStmt: [Var146 <-- Var115]	
+   %14 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !39 { "ln": 38, "cl": 17, "fl": "example.c" }
+node: CallICFGNode70 {fun: main{ "ln": 38, "cl": 5, "fl": "example.c" }}
+CallPE: [Var60 <-- Var146]	
+   call void @doSomething(%struct.Data* %14), !dbg !40 { "ln": 38, "cl": 5, "fl": "example.c" }
+node: FunEntryICFGNode7 {fun: doSomething{ "ln": 8, "file": "example.c" }}
+node: IntraICFGNode8 {fun: doSomething{ "ln": 8, "fl": "example.c" }}
+AddrStmt: [Var61 <-- Var62]	
+   %2 = alloca %struct.Data*, align 8 { "ln": 8, "fl": "example.c" }
+node: IntraICFGNode9 {fun: doSomething}
+StoreStmt: [Var61 <-- Var60]	
+   store %struct.Data* %0, %struct.Data** %2, align 8 
+node: IntraICFGNode10 {fun: doSomething{ "ln": 10, "cl": 46, "fl": "example.c" }}
+LoadStmt: [Var65 <-- Var61]	
+   %3 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !21 { "ln": 10, "cl": 46, "fl": "example.c" }
+node: IntraICFGNode11 {fun: doSomething{ "ln": 10, "cl": 52, "fl": "example.c" }}
+GepStmt: [Var66 <-- Var65]	
+   %4 = getelementptr inbounds %struct.Data, %struct.Data* %3, i32 0, i32 0, !dbg !22 { "ln": 10, "cl": 52, "fl": "example.c" }
+node: IntraICFGNode12 {fun: doSomething{ "ln": 10, "cl": 52, "fl": "example.c" }}
+LoadStmt: [Var67 <-- Var66]	
+   %5 = load i32, i32* %4, align 8, !dbg !22 { "ln": 10, "cl": 52, "fl": "example.c" }
+node: IntraICFGNode13 {fun: doSomething}
+GepStmt: [Var68 <-- Var40]	
+   %6 = getelementptr inbounds [30 x i8], [30 x i8]* @.str.1, i32 0, i32 0 
+node: CallICFGNode14 {fun: doSomething{ "ln": 10, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode15 {fun: doSomething{ "ln": 10, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode16 {fun: doSomething{ "ln": 11, "cl": 5, "fl": "example.c" }}
+LoadStmt: [Var70 <-- Var61]	
+   %8 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !24 { "ln": 11, "cl": 5, "fl": "example.c" }
+path end!
+path start!
+node: IntraICFGNode28 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+CopyStmt: [Var92 <-- Var91]	
+   %5 = bitcast %struct.Data* %4 to i8*, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: CallICFGNode29 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode30 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode31 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+StoreStmt: [Var85 <-- Var0]	
+   store %struct.Data* null, %struct.Data** %2, align 8, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode32 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+BranchStmt: [ Unconditional branch]
+Successor 0 ICFGNode33   
+   br label %6, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode33 {fun: cleanup}
+GepStmt: [Var99 <-- Var42]	
+   %7 = getelementptr inbounds [16 x i8], [16 x i8]* @.str.2, i32 0, i32 0 
+node: CallICFGNode34 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode35 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode36 {fun: cleanup{ "ln": 18, "cl": 1, "fl": "example.c" }}
+   ret void, !dbg !27 { "ln": 18, "cl": 1, "fl": "example.c" }
+node: FunExitICFGNode37 {fun: cleanup}
+node: RetICFGNode66 {fun: main{ "ln": 33, "cl": 9, "fl": "example.c" }}
+node: CallICFGNode68 {fun: main{ "ln": 34, "cl": 9, "fl": "example.c" }}
+node: FunEntryICFGNode1 {fun: printSomething{ "ln": 10, "file": "./example.h" }}
+node: IntraICFGNode2 {fun: printSomething}
+GepStmt: [Var49 <-- Var38]	
+   %1 = getelementptr inbounds [19 x i8], [19 x i8]* @.str, i32 0, i32 0 
+node: CallICFGNode3 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: RetICFGNode4 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: IntraICFGNode5 {fun: printSomething{ "ln": 13, "cl": 1, "fl": "./example.h" }}
+   ret void, !dbg !21 { "ln": 13, "cl": 1, "fl": "./example.h" }
+node: FunExitICFGNode6 {fun: printSomething}
+node: RetICFGNode64 {fun: main{ "ln": 37, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode67 {fun: main{ "ln": 38, "cl": 17, "fl": "example.c" }}
+LoadStmt: [Var146 <-- Var115]	
+   %14 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !39 { "ln": 38, "cl": 17, "fl": "example.c" }
+path end!
+path start!
+node: IntraICFGNode28 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+CopyStmt: [Var92 <-- Var91]	
+   %5 = bitcast %struct.Data* %4 to i8*, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: CallICFGNode29 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode30 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode31 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+StoreStmt: [Var85 <-- Var0]	
+   store %struct.Data* null, %struct.Data** %2, align 8, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode32 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+BranchStmt: [ Unconditional branch]
+Successor 0 ICFGNode33   
+   br label %6, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode33 {fun: cleanup}
+GepStmt: [Var99 <-- Var42]	
+   %7 = getelementptr inbounds [16 x i8], [16 x i8]* @.str.2, i32 0, i32 0 
+node: CallICFGNode34 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode35 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode36 {fun: cleanup{ "ln": 18, "cl": 1, "fl": "example.c" }}
+   ret void, !dbg !27 { "ln": 18, "cl": 1, "fl": "example.c" }
+node: FunExitICFGNode37 {fun: cleanup}
+node: RetICFGNode66 {fun: main{ "ln": 33, "cl": 9, "fl": "example.c" }}
+node: CallICFGNode68 {fun: main{ "ln": 34, "cl": 9, "fl": "example.c" }}
+node: FunEntryICFGNode1 {fun: printSomething{ "ln": 10, "file": "./example.h" }}
+node: IntraICFGNode2 {fun: printSomething}
+GepStmt: [Var49 <-- Var38]	
+   %1 = getelementptr inbounds [19 x i8], [19 x i8]* @.str, i32 0, i32 0 
+node: CallICFGNode3 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: RetICFGNode4 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: IntraICFGNode5 {fun: printSomething{ "ln": 13, "cl": 1, "fl": "./example.h" }}
+   ret void, !dbg !21 { "ln": 13, "cl": 1, "fl": "./example.h" }
+node: FunExitICFGNode6 {fun: printSomething}
+node: RetICFGNode64 {fun: main{ "ln": 37, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode67 {fun: main{ "ln": 38, "cl": 17, "fl": "example.c" }}
+LoadStmt: [Var146 <-- Var115]	
+   %14 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !39 { "ln": 38, "cl": 17, "fl": "example.c" }
+node: CallICFGNode70 {fun: main{ "ln": 38, "cl": 5, "fl": "example.c" }}
+CallPE: [Var60 <-- Var146]	
+   call void @doSomething(%struct.Data* %14), !dbg !40 { "ln": 38, "cl": 5, "fl": "example.c" }
+node: FunEntryICFGNode7 {fun: doSomething{ "ln": 8, "file": "example.c" }}
+node: IntraICFGNode8 {fun: doSomething{ "ln": 8, "fl": "example.c" }}
+AddrStmt: [Var61 <-- Var62]	
+   %2 = alloca %struct.Data*, align 8 { "ln": 8, "fl": "example.c" }
+node: IntraICFGNode9 {fun: doSomething}
+StoreStmt: [Var61 <-- Var60]	
+   store %struct.Data* %0, %struct.Data** %2, align 8 
+path end!
+path start!
+node: IntraICFGNode28 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+CopyStmt: [Var92 <-- Var91]	
+   %5 = bitcast %struct.Data* %4 to i8*, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: CallICFGNode29 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode30 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode31 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+StoreStmt: [Var85 <-- Var0]	
+   store %struct.Data* null, %struct.Data** %2, align 8, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode32 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+BranchStmt: [ Unconditional branch]
+Successor 0 ICFGNode33   
+   br label %6, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode33 {fun: cleanup}
+GepStmt: [Var99 <-- Var42]	
+   %7 = getelementptr inbounds [16 x i8], [16 x i8]* @.str.2, i32 0, i32 0 
+node: CallICFGNode34 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode35 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode36 {fun: cleanup{ "ln": 18, "cl": 1, "fl": "example.c" }}
+   ret void, !dbg !27 { "ln": 18, "cl": 1, "fl": "example.c" }
+node: FunExitICFGNode37 {fun: cleanup}
+node: RetICFGNode66 {fun: main{ "ln": 33, "cl": 9, "fl": "example.c" }}
+node: CallICFGNode68 {fun: main{ "ln": 34, "cl": 9, "fl": "example.c" }}
+node: FunEntryICFGNode1 {fun: printSomething{ "ln": 10, "file": "./example.h" }}
+node: IntraICFGNode2 {fun: printSomething}
+GepStmt: [Var49 <-- Var38]	
+   %1 = getelementptr inbounds [19 x i8], [19 x i8]* @.str, i32 0, i32 0 
+node: CallICFGNode3 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: RetICFGNode4 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: IntraICFGNode5 {fun: printSomething{ "ln": 13, "cl": 1, "fl": "./example.h" }}
+   ret void, !dbg !21 { "ln": 13, "cl": 1, "fl": "./example.h" }
+node: FunExitICFGNode6 {fun: printSomething}
+node: RetICFGNode64 {fun: main{ "ln": 37, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode67 {fun: main{ "ln": 38, "cl": 17, "fl": "example.c" }}
+LoadStmt: [Var146 <-- Var115]	
+   %14 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !39 { "ln": 38, "cl": 17, "fl": "example.c" }
+node: CallICFGNode70 {fun: main{ "ln": 38, "cl": 5, "fl": "example.c" }}
+CallPE: [Var60 <-- Var146]	
+   call void @doSomething(%struct.Data* %14), !dbg !40 { "ln": 38, "cl": 5, "fl": "example.c" }
+node: FunEntryICFGNode7 {fun: doSomething{ "ln": 8, "file": "example.c" }}
+node: IntraICFGNode8 {fun: doSomething{ "ln": 8, "fl": "example.c" }}
+AddrStmt: [Var61 <-- Var62]	
+   %2 = alloca %struct.Data*, align 8 { "ln": 8, "fl": "example.c" }
+node: IntraICFGNode9 {fun: doSomething}
+StoreStmt: [Var61 <-- Var60]	
+   store %struct.Data* %0, %struct.Data** %2, align 8 
+node: IntraICFGNode10 {fun: doSomething{ "ln": 10, "cl": 46, "fl": "example.c" }}
+LoadStmt: [Var65 <-- Var61]	
+   %3 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !21 { "ln": 10, "cl": 46, "fl": "example.c" }
+path end!
+path start!
+node: IntraICFGNode28 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+CopyStmt: [Var92 <-- Var91]	
+   %5 = bitcast %struct.Data* %4 to i8*, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: CallICFGNode29 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode30 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode31 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+StoreStmt: [Var85 <-- Var0]	
+   store %struct.Data* null, %struct.Data** %2, align 8, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode32 {fun: cleanup{ "ln": 16, "cl": 5, "fl": "example.c" }}
+BranchStmt: [ Unconditional branch]
+Successor 0 ICFGNode33   
+   br label %6, !dbg !23 { "ln": 16, "cl": 5, "fl": "example.c" }
+node: IntraICFGNode33 {fun: cleanup}
+GepStmt: [Var99 <-- Var42]	
+   %7 = getelementptr inbounds [16 x i8], [16 x i8]* @.str.2, i32 0, i32 0 
+node: CallICFGNode34 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: RetICFGNode35 {fun: cleanup{ "ln": 17, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode36 {fun: cleanup{ "ln": 18, "cl": 1, "fl": "example.c" }}
+   ret void, !dbg !27 { "ln": 18, "cl": 1, "fl": "example.c" }
+node: FunExitICFGNode37 {fun: cleanup}
+node: RetICFGNode66 {fun: main{ "ln": 33, "cl": 9, "fl": "example.c" }}
+node: CallICFGNode68 {fun: main{ "ln": 34, "cl": 9, "fl": "example.c" }}
+node: FunEntryICFGNode1 {fun: printSomething{ "ln": 10, "file": "./example.h" }}
+node: IntraICFGNode2 {fun: printSomething}
+GepStmt: [Var49 <-- Var38]	
+   %1 = getelementptr inbounds [19 x i8], [19 x i8]* @.str, i32 0, i32 0 
+node: CallICFGNode3 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: RetICFGNode4 {fun: printSomething{ "ln": 12, "cl": 5, "fl": "./example.h" }}
+node: IntraICFGNode5 {fun: printSomething{ "ln": 13, "cl": 1, "fl": "./example.h" }}
+   ret void, !dbg !21 { "ln": 13, "cl": 1, "fl": "./example.h" }
+node: FunExitICFGNode6 {fun: printSomething}
+node: RetICFGNode64 {fun: main{ "ln": 37, "cl": 5, "fl": "example.c" }}
+node: IntraICFGNode67 {fun: main{ "ln": 38, "cl": 17, "fl": "example.c" }}
+LoadStmt: [Var146 <-- Var115]	
+   %14 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !39 { "ln": 38, "cl": 17, "fl": "example.c" }
+node: CallICFGNode70 {fun: main{ "ln": 38, "cl": 5, "fl": "example.c" }}
+CallPE: [Var60 <-- Var146]	
+   call void @doSomething(%struct.Data* %14), !dbg !40 { "ln": 38, "cl": 5, "fl": "example.c" }
+node: FunEntryICFGNode7 {fun: doSomething{ "ln": 8, "file": "example.c" }}
+node: IntraICFGNode8 {fun: doSomething{ "ln": 8, "fl": "example.c" }}
+AddrStmt: [Var61 <-- Var62]	
+   %2 = alloca %struct.Data*, align 8 { "ln": 8, "fl": "example.c" }
+node: IntraICFGNode9 {fun: doSomething}
+StoreStmt: [Var61 <-- Var60]	
+   store %struct.Data* %0, %struct.Data** %2, align 8 
+node: IntraICFGNode10 {fun: doSomething{ "ln": 10, "cl": 46, "fl": "example.c" }}
+LoadStmt: [Var65 <-- Var61]	
+   %3 = load %struct.Data*, %struct.Data** %2, align 8, !dbg !21 { "ln": 10, "cl": 46, "fl": "example.c" }
+node: IntraICFGNode11 {fun: doSomething{ "ln": 10, "cl": 52, "fl": "example.c" }}
+GepStmt: [Var66 <-- Var65]	
+   %4 = getelementptr inbounds %struct.Data, %struct.Data* %3, i32 0, i32 0, !dbg !22 { "ln": 10, "cl": 52, "fl": "example.c" }
+path end!

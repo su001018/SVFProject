@@ -1,0 +1,9 @@
+example.c:9:18,example.c:13:16
+example.c:9:18,example.c:22:9
+example.c:22:9,example.c:23:13
+example.c:22:9,
+example.c:23:13,example.c:24:17
+example.c:23:13,
+example.c:24:17,example.c:25:17
+example.c:24:17,
+example.c:25:17,

@@ -1,27 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "example.h"
+struct Data
+{
+    int value;
+    void (*callback)();
+};
+
+void doSomething(struct Data *data)
+{
+    printf("Doing something... Value: %d\n", data->value);
+    data->callback();
+}
+
+void cleanup(struct Data *data)
+{
+    dealloc(data);
+    printf("Cleaning up...\n");
+}
+
+void callbackFunction()
+{
+    printf("Callback function called!\n");
+}
 
 int main()
 {
-    char buf[7];
-    read(0, buf, 7);
-    char *ptr1 = malloc(8);
-    char *ptr2 = malloc(8);
-    if (buf[5] == 'e')
+    struct Data *data = (struct Data *)malloc(sizeof(struct Data));
+    data->value = 42;
+    data->callback = callbackFunction;
+
+    if (rand() > 5)
     {
-        ptr2 = ptr1;
+        cleanup(data);
+        printSomething();
+        return 0;
     }
-    if (buf[3] == 's')
-    {
-        if (buf[1] == 'u')
-        {
-            free(ptr1);
-        }
-    }
-    if (buf[4] == 'e')
-        if (buf[2] == 'r')
-            if (buf[0] == 'f')
-                ptr2[0] = 'm';
+
+    printSomething();
+    doSomething(data);
+
     return 0;
 }
