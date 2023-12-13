@@ -32,7 +32,6 @@ int main()
     {
         cleanup(data);
         printSomething();
-        return 0;
     }
 
     printSomething();

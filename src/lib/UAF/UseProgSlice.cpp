@@ -130,11 +130,14 @@ bool UseProgSlice::isNotRedefine(const ICFGNode *src, const ICFGNode *dst, const
     std::ofstream fs_out;
     NodeBS visited;
     std::map<int, int> father;
-    std::<int>callStack;
+    std::stack<int> callStack;
 
     fs_out.open("icfg_path.txt", std::ios::app);
     worklist.push(src);
     father[src->getId()] = -1;
+
+    fs_out << "src: " << src->toString() << endl;
+    fs_out << "dst: " << dst->toString() << endl;
 
     while (!worklist.empty())
     {
@@ -179,11 +182,29 @@ bool UseProgSlice::isNotRedefine(const ICFGNode *src, const ICFGNode *dst, const
                 fs_out.close();
                 return false;
             }
+            fs_out << "+++++++++add node++++++++++" << endl << retNode->toString() << endl;
             callStack.push(callNode->getId());
         }
         if (CallICFGNode *callNode = SVFUtil::dyn_cast<CallICFGNode>(node))
         {
-            if ()
+            if (callStack.empty() || callStack.top() != callNode->getId())
+            {
+                string message = "";
+                if (callStack.empty())
+                    message = "call stack is empty!";
+                else
+                {
+                    message = "don't match [return node]: " +
+                              PAG::getPAG()->getICFG()->getICFGNode(callStack.top())->toString();
+                }
+                fs_out << "The [call node]: " << callNode->toString() << endl
+                       << "dont match because " << message << endl
+                       << "it's [return node]: " << callNode->getRetICFGNode()->toString() << endl;
+                fs_out.close();
+                return false;
+            }
+            fs_out << "--------------pop node--------------" << endl << node->toString() << endl;
+            callStack.pop();
         }
         path.push(curId);
         curId = father[curId];

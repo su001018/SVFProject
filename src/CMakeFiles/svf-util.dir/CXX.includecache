@@ -6,11 +6,41 @@
 
 #IncludeRegexTransform: 
 
+/home/test/workspace/code/pointerAnalysis/src/lib/UAF/UseAfterFreeChecker.cpp
+UAF/UseAfterFreeChecker.h
+/home/test/workspace/code/pointerAnalysis/src/lib/UAF/UAF/UseAfterFreeChecker.h
+WPA/Andersen.h
+/home/test/workspace/code/pointerAnalysis/src/lib/UAF/WPA/Andersen.h
+
 /home/test/workspace/code/pointerAnalysis/src/lib/UAF/UseProgSlice.cpp
 UAF/UseProgSlice.h
 /home/test/workspace/code/pointerAnalysis/src/lib/UAF/UAF/UseProgSlice.h
 SVF-LLVM/LLVMUtil.h
 /home/test/workspace/code/pointerAnalysis/src/lib/UAF/SVF-LLVM/LLVMUtil.h
+
+/home/test/workspace/code/pointerAnalysis/src/lib/test.cpp
+AndersenPTA.h
+/home/test/workspace/code/pointerAnalysis/src/lib/AndersenPTA.h
+Graphs/SVFG.h
+/home/test/workspace/code/pointerAnalysis/src/lib/Graphs/SVFG.h
+SABER/DoubleFreeChecker.h
+/home/test/workspace/code/pointerAnalysis/src/lib/SABER/DoubleFreeChecker.h
+SABER/SaberCheckerAPI.h
+/home/test/workspace/code/pointerAnalysis/src/lib/SABER/SaberCheckerAPI.h
+SVF-LLVM/LLVMUtil.h
+/home/test/workspace/code/pointerAnalysis/src/lib/SVF-LLVM/LLVMUtil.h
+SVF-LLVM/SVFIRBuilder.h
+/home/test/workspace/code/pointerAnalysis/src/lib/SVF-LLVM/SVFIRBuilder.h
+UAF/UseAfterFreeChecker.h
+/home/test/workspace/code/pointerAnalysis/src/lib/UAF/UseAfterFreeChecker.h
+UAF/UseProgSlice.h
+/home/test/workspace/code/pointerAnalysis/src/lib/UAF/UseProgSlice.h
+UseLine.h
+/home/test/workspace/code/pointerAnalysis/src/lib/UseLine.h
+Util/Options.h
+/home/test/workspace/code/pointerAnalysis/src/lib/Util/Options.h
+WPA/Andersen.h
+/home/test/workspace/code/pointerAnalysis/src/lib/WPA/Andersen.h
 
 /home/test/workspace/code/svf/SVF-master/Release-build/include/Util/config.h
 
@@ -3122,6 +3152,12 @@ llvm/ADT/PointerIntPair.h
 llvm/IR/GetElementPtrTypeIterator.h
 /home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/llvm/IR/GetElementPtrTypeIterator.h
 
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/ICFGBuilder.h
+Graphs/ICFG.h
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/Graphs/ICFG.h
+Util/WorkList.h
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/Util/WorkList.h
+
 /home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/LLVMModule.h
 SVF-LLVM/BasicTypes.h
 /home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVF-LLVM/BasicTypes.h
@@ -3145,6 +3181,18 @@ SVFIR/SVFValue.h
 /home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVFIR/SVFValue.h
 Util/ThreadAPI.h
 /home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/Util/ThreadAPI.h
+
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVFIRBuilder.h
+SVFIR/SVFIR.h
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVFIR/SVFIR.h
+SVF-LLVM/BasicTypes.h
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVF-LLVM/BasicTypes.h
+SVF-LLVM/ICFGBuilder.h
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVF-LLVM/ICFGBuilder.h
+SVF-LLVM/LLVMModule.h
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVF-LLVM/LLVMModule.h
+SVF-LLVM/LLVMUtil.h
+/home/test/workspace/code/svf/SVF-master/svf-llvm/include/SVF-LLVM/SVF-LLVM/LLVMUtil.h
 
 /home/test/workspace/code/svf/SVF-master/svf/include/FastCluster/fastcluster.h
 
@@ -3292,6 +3340,12 @@ Graphs/VFGNode.h
 Graphs/SVFGEdge.h
 /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/Graphs/SVFGEdge.h
 
+/home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFGOPT.h
+Graphs/SVFG.h
+/home/test/workspace/code/svf/SVF-master/svf/include/Graphs/Graphs/SVFG.h
+Util/WorkList.h
+/home/test/workspace/code/svf/SVF-master/svf/include/Graphs/Util/WorkList.h
+
 /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/VFG.h
 SVFIR/SVFIR.h
 /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFIR/SVFIR.h
@@ -3341,6 +3395,12 @@ MSSA/MSSAMuChi.h
 /home/test/workspace/code/svf/SVF-master/svf/include/MSSA/MSSA/MSSAMuChi.h
 vector
 -
+
+/home/test/workspace/code/svf/SVF-master/svf/include/MSSA/SVFGBuilder.h
+MemoryModel/PointerAnalysis.h
+/home/test/workspace/code/svf/SVF-master/svf/include/MSSA/MemoryModel/PointerAnalysis.h
+Graphs/SVFGOPT.h
+/home/test/workspace/code/svf/SVF-master/svf/include/MSSA/Graphs/SVFGOPT.h
 
 /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/AbstractPointsToDS.h
 SVFIR/SVFType.h
@@ -3436,6 +3496,16 @@ Util/SparseBitVector.h
 SVFIR/SVFType.h
 /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/SVFIR/SVFType.h
 
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/DoubleFreeChecker.h
+SABER/LeakChecker.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SABER/LeakChecker.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/LeakChecker.h
+SABER/SrcSnkDDA.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SABER/SrcSnkDDA.h
+SABER/SaberCheckerAPI.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SABER/SaberCheckerAPI.h
+
 /home/test/workspace/code/svf/SVF-master/svf/include/SABER/ProgSlice.h
 SABER/SaberCondAllocator.h
 /home/test/workspace/code/svf/SVF-master/svf/include/SABER/SABER/SaberCondAllocator.h
@@ -3448,6 +3518,12 @@ Util/DPItem.h
 Util/SVFBugReport.h
 /home/test/workspace/code/svf/SVF-master/svf/include/SABER/Util/SVFBugReport.h
 
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SaberCheckerAPI.h
+Util/SVFUtil.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/Util/SVFUtil.h
+Graphs/ICFGNode.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/Graphs/ICFGNode.h
+
 /home/test/workspace/code/svf/SVF-master/svf/include/SABER/SaberCondAllocator.h
 SVFIR/SVFModule.h
 /home/test/workspace/code/svf/SVF-master/svf/include/SABER/SVFIR/SVFModule.h
@@ -3459,6 +3535,26 @@ Graphs/SVFG.h
 /home/test/workspace/code/svf/SVF-master/svf/include/SABER/Graphs/SVFG.h
 Util/Z3Expr.h
 /home/test/workspace/code/svf/SVF-master/svf/include/SABER/Util/Z3Expr.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SaberSVFGBuilder.h
+MSSA/SVFGBuilder.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/MSSA/SVFGBuilder.h
+SVFIR/SVFValue.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SVFIR/SVFValue.h
+Util/WorkList.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/Util/WorkList.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SrcSnkDDA.h
+Graphs/SVFGOPT.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/Graphs/SVFGOPT.h
+SABER/ProgSlice.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SABER/ProgSlice.h
+SABER/SaberSVFGBuilder.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/SABER/SaberSVFGBuilder.h
+Util/GraphReachSolver.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/Util/GraphReachSolver.h
+Util/SVFBugReport.h
+/home/test/workspace/code/svf/SVF-master/svf/include/SABER/Util/SVFBugReport.h
 
 /home/test/workspace/code/svf/SVF-master/svf/include/SVFIR/SVFIR.h
 Graphs/IRGraph.h
@@ -3593,6 +3689,12 @@ vector
 -
 map
 -
+
+/home/test/workspace/code/svf/SVF-master/svf/include/Util/GraphReachSolver.h
+Util/WorkList.h
+/home/test/workspace/code/svf/SVF-master/svf/include/Util/Util/WorkList.h
+Util/DPItem.h
+/home/test/workspace/code/svf/SVF-master/svf/include/Util/Util/DPItem.h
 
 /home/test/workspace/code/svf/SVF-master/svf/include/Util/NodeIDAllocator.h
 FastCluster/fastcluster.h
@@ -3740,9 +3842,63 @@ utility
 utility
 -
 
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/Andersen.h
+MemoryModel/PointerAnalysisImpl.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/MemoryModel/PointerAnalysisImpl.h
+WPA/WPAStat.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/WPAStat.h
+WPA/WPASolver.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/WPASolver.h
+SVFIR/SVFIR.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/SVFIR/SVFIR.h
+Graphs/ConsG.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/Graphs/ConsG.h
+Util/Options.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/Util/Options.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/FlowSensitive.h
+FastCluster/fastcluster.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/FastCluster/fastcluster.h
+Graphs/SVFGOPT.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/Graphs/SVFGOPT.h
+MemoryModel/PointerAnalysisImpl.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/MemoryModel/PointerAnalysisImpl.h
+MSSA/SVFGBuilder.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/MSSA/SVFGBuilder.h
+WPA/WPAFSSolver.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/WPAFSSolver.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/VersionedFlowSensitive.h
+Graphs/SVFGOPT.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/Graphs/SVFGOPT.h
+MSSA/SVFGBuilder.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/MSSA/SVFGBuilder.h
+WPA/FlowSensitive.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/FlowSensitive.h
+WPA/WPAFSSolver.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/WPAFSSolver.h
+MemoryModel/PointsTo.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/MemoryModel/PointsTo.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPAFSSolver.h
+WPA/WPASolver.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/WPASolver.h
+
 /home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPAPass.h
 MemoryModel/PointerAnalysisImpl.h
 /home/test/workspace/code/svf/SVF-master/svf/include/WPA/MemoryModel/PointerAnalysisImpl.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPASolver.h
+Util/WorkList.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/Util/WorkList.h
+
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPAStat.h
+Util/PTAStat.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/Util/PTAStat.h
+WPA/FlowSensitive.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/FlowSensitive.h
+WPA/VersionedFlowSensitive.h
+/home/test/workspace/code/svf/SVF-master/svf/include/WPA/WPA/VersionedFlowSensitive.h
 
 /home/test/workspace/code/svf/SVF-master/z3.obj/include/z3++.h
 cassert
@@ -3806,7 +3962,29 @@ z3_spacer.h
 
 /home/test/workspace/code/svf/SVF-master/z3.obj/include/z3_spacer.h
 
+src/include/AndersenPTA.h
+SVF-LLVM/LLVMUtil.h
+src/include/SVF-LLVM/LLVMUtil.h
+SVF-LLVM/SVFIRBuilder.h
+src/include/SVF-LLVM/SVFIRBuilder.h
+WPA/Andersen.h
+src/include/WPA/Andersen.h
+
+src/include/UAF/UseAfterFreeChecker.h
+SABER/LeakChecker.h
+src/include/UAF/SABER/LeakChecker.h
+UAF/UseProgSlice.h
+src/include/UAF/UAF/UseProgSlice.h
+
 src/include/UAF/UseProgSlice.h
 SABER/ProgSlice.h
 src/include/UAF/SABER/ProgSlice.h
+
+src/include/UseLine.h
+Graphs/SVFG.h
+src/include/Graphs/SVFG.h
+SVF-LLVM/LLVMUtil.h
+src/include/SVF-LLVM/LLVMUtil.h
+SVF-LLVM/SVFIRBuilder.h
+src/include/SVF-LLVM/SVFIRBuilder.h
 
