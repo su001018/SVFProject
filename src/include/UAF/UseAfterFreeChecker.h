@@ -5,8 +5,13 @@
 #ifndef USEAFTERFREECHECKER_H_
 #define USEAFTERFREECHECKER_H_
 
+#include "MTA/FSMPTA.h"
+#include "MTA/LockAnalysis.h"
+#include "MTA/MHP.h"
+#include "MTA/TCT.h"
 #include "SABER/LeakChecker.h"
 #include "UAF/UseProgSlice.h"
+
 using namespace SVF;
 /*!
  * Use after free checker to check
@@ -31,6 +36,7 @@ class UseAfterFreeChecker : public LeakChecker
     /// Set current slice
     void setCurSlice(const SVFGNode *src) override;
     void initialize(SVFModule *module) override;
+    void initSrcs() override;
     void initUses();
     inline void addUseToCurSlice(const SVFGNode *node)
     {

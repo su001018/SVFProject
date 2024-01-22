@@ -9,6 +9,10 @@
 #include "UseLine.h"
 #include "Util/Options.h"
 #include "WPA/Andersen.h"
+#include "MTA/TCT.h"
+#include "MTA/LockAnalysis.h"
+#include "MTA/MHP.h"
+#include "MTA/FSMPTA.h"
 
 using namespace llvm;
 using namespace std;
@@ -175,9 +179,11 @@ int main(int argc, char **argv)
 
     Andersen *ander = AndersenWaveDiff::createAndersenWaveDiff(pag);
 
-    SVFGBuilder svfBuilder;
-    SVFG *svfg = svfBuilder.buildFullSVFG(ander);
-    svfg->dump("svfg");
+    // SVFGBuilder svfBuilder;
+    // SVFG *svfg = svfBuilder.buildFullSVFG(ander);
+    // svfg->dump("svfg");
+
+    
 
     cout << endl;
 

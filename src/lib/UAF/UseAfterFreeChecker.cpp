@@ -8,6 +8,11 @@ using namespace std;
 void UseAfterFreeChecker::analyze(SVFModule *module)
 {
     initialize(module);
+    // builder is created in function stack, when function return, the pointer is deleted.
+    for (const SVFGNode *node : getSources())
+    {
+        cout << "node: " << node->getId() << endl;
+    }
     for (SVFGNodeSetIter iter = sourcesBegin(), eiter = sourcesEnd(); iter != eiter; ++iter)
     {
         setCurSlice(*iter);
@@ -77,13 +82,26 @@ void UseAfterFreeChecker::setCurSlice(const SVFGNode *src)
 void UseAfterFreeChecker::initialize(SVFModule *module)
 {
     SVFIR *pag = PAG::getPAG();
-
     AndersenWaveDiff *ander = AndersenWaveDiff::createAndersenWaveDiff(pag);
+
+    // use saber build svfg
+
+    // if (Options::SABERFULLSVFG())
+    //     svfg = memSSA.buildFullSVFG(ander);
+    // else
+    //     svfg = memSSA.buildPTROnlySVFG(ander);
+    // setGraph(memSSA.getSVFG());
+
+    // use mta build svfg
+
+    TCT *tct = new TCT(ander);
+    MTASVFGBuilder *mtaSVFGBuilder = new MTASVFGBuilder(new MHP(tct), new LockAnalysis(tct));
     if (Options::SABERFULLSVFG())
-        svfg = memSSA.buildFullSVFG(ander);
+        svfg = mtaSVFGBuilder->buildFullSVFG(ander);
     else
-        svfg = memSSA.buildPTROnlySVFG(ander);
-    setGraph(memSSA.getSVFG());
+        svfg = mtaSVFGBuilder->buildPTROnlySVFG(ander);
+    setGraph(mtaSVFGBuilder->getSVFG());
+
     ptaCallGraph = ander->getPTACallGraph();
     // AndersenWaveDiff::releaseAndersenWaveDiff();
     /// allocate control-flow graph branch conditions
@@ -92,6 +110,63 @@ void UseAfterFreeChecker::initialize(SVFModule *module)
     initSrcs();
     initSnks();
     initUses();
+}
+void UseAfterFreeChecker::initSrcs()
+{
+    SVFIR *pag = getPAG();
+    ICFG *icfg = pag->getICFG();
+    for (SVFIR::CSToRetMap::iterator it = pag->getCallSiteRets().begin(), eit = pag->getCallSiteRets().end(); it != eit;
+         ++it)
+    {
+        const RetICFGNode *cs = it->first;
+        if (cs->getCallSite()->ptrInUncalledFunction() || !cs->getCallSite()->getType()->isPointerTy())
+            continue;
+
+        PTACallGraph::FunctionSet callees;
+        getCallgraph()->getCallees(cs->getCallICFGNode(), callees);
+        for (PTACallGraph::FunctionSet::const_iterator cit = callees.begin(), ecit = callees.end(); cit != ecit; cit++)
+        {
+            const SVFFunction *fun = *cit;
+            if (isSourceLikeFun(fun))
+            {
+                CSWorkList worklist;
+                SVFGNodeBS visited;
+                worklist.push(it->first->getCallICFGNode());
+                while (!worklist.empty())
+                {
+                    const CallICFGNode *cs = worklist.pop();
+                    const RetICFGNode *retBlockNode = icfg->getRetICFGNode(cs->getCallSite());
+                    const PAGNode *pagNode = pag->getCallSiteRet(retBlockNode);
+                    const SVFGNode *node = getSVFG()->getDefSVFGNode(pagNode);
+                    if (visited.test(node->getId()) == 0)
+                        visited.set(node->getId());
+                    else
+                        continue;
+
+                    CallSiteSet csSet;
+                    // if this node is in an allocation wrapper, find all its call nodes
+                    if (isInAWrapper(node, csSet))
+                    {
+                        for (CallSiteSet::iterator it = csSet.begin(), eit = csSet.end(); it != eit; ++it)
+                        {
+                            worklist.push(*it);
+                        }
+                    }
+                    // otherwise, this is the source we are interested
+                    else
+                    {
+                        // exclude sources in dead functions or sources in functions that have summary
+                        if (!cs->getCallSite()->ptrInUncalledFunction() &&
+                            !isExtCall(cs->getCallSite()->getParent()->getParent()))
+                        {
+                            addToSources(node);
+                            addSrcToCSID(node, cs);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 void UseAfterFreeChecker::initUses()

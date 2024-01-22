@@ -6,8 +6,3 @@
         free(ptr);                                                                                                     \
         ptr = NULL;                                                                                                    \
     } while (0)
-
-void printSomething()
-{
-    printf("printSomething...\n");
-}

@@ -2,13 +2,11 @@
 struct Data
 {
     int value;
-    void (*callback)();
 };
 
 void doSomething(struct Data *data)
 {
     printf("Doing something... Value: %d\n", data->value);
-    data->callback();
 }
 
 void cleanup(struct Data *data)
@@ -17,25 +15,12 @@ void cleanup(struct Data *data)
     printf("Cleaning up...\n");
 }
 
-void callbackFunction()
-{
-    printf("Callback function called!\n");
-}
-
 int main()
 {
     struct Data *data = (struct Data *)malloc(sizeof(struct Data));
-    data->value = 42;
-    data->callback = callbackFunction;
-
-    if (rand() > 5)
-    {
-        cleanup(data);
-        printSomething();
-    }
-
-    printSomething();
+    struct Data *data2 = (struct Data *)malloc(sizeof(struct Data));
     doSomething(data);
-
+    cleanup(data);
+    doSomething(data2);
     return 0;
 }

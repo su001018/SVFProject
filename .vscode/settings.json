@@ -6,6 +6,7 @@
         "-DCMAKE_BUILD_TYPE=Debug"
     ],
     "files.associations": {
+        "*.ll": "txt",
         "__bit_reference": "cpp",
         "__bits": "cpp",
         "__config": "cpp",
@@ -87,7 +88,8 @@
         "shared_mutex": "cpp",
         "thread": "cpp",
         "cinttypes": "cpp",
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "example.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

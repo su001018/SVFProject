@@ -23,6 +23,7 @@ src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/worksp
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFGEdge.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFGNode.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFGOPT.h
+src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/ThreadCallGraph.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/VFG.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/VFGEdge.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/VFGNode.h
@@ -30,6 +31,10 @@ src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/worksp
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MSSA/MemRegion.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MSSA/MemSSA.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MSSA/SVFGBuilder.h
+src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/FSMPTA.h
+src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/LockAnalysis.h
+src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/MHP.h
+src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/TCT.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/AbstractPointsToDS.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/AccessPath.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/ConditionalPT.h
@@ -57,6 +62,7 @@ src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/worksp
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/Casting.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/CommandLine.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/CoreBitVector.h
+src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/CxtStmt.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/DPItem.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/ExtAPI.h
 src/CMakeFiles/svf-util.dir/lib/UAF/UseAfterFreeChecker.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/GraphReachSolver.h
@@ -578,6 +584,7 @@ src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-ma
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFGEdge.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFGNode.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/SVFGOPT.h
+src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/ThreadCallGraph.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/VFG.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/VFGEdge.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Graphs/VFGNode.h
@@ -585,6 +592,10 @@ src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-ma
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MSSA/MemRegion.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MSSA/MemSSA.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MSSA/SVFGBuilder.h
+src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/FSMPTA.h
+src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/LockAnalysis.h
+src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/MHP.h
+src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MTA/TCT.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/AbstractPointsToDS.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/AccessPath.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/MemoryModel/ConditionalPT.h
@@ -614,6 +625,7 @@ src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-ma
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/CommandLine.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/CoreBitVector.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/CppUtil.h
+src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/CxtStmt.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/DPItem.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/ExtAPI.h
 src/CMakeFiles/svf-util.dir/lib/test.cpp.o: /home/test/workspace/code/svf/SVF-master/svf/include/Util/GraphReachSolver.h

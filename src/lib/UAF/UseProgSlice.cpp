@@ -19,14 +19,33 @@ void UseProgSlice::reportUAF()
             if (!isEquivalentBranchCond(guard, getFalseCond()))
             {
                 const SVFGNode *useNode = *uit;
-                if (isBefore(freeNode, useNode, getSource()))
+                if (canBeAddedToSequence(getSource(), freeNode, useNode))
                 {
-                    putUAFResult(getSource(), freeNode, useNode);
+                    if (isBefore(freeNode, useNode, getSource()))
+                    {
+                        addToSequence(getSource(), freeNode, useNode);
+                    }
                 }
             }
         }
         // Double free
     }
+    printAnalyzeResult("uaf_result.txt");
+}
+void UseProgSlice::printAnalyzeResult(string file)
+{
+    if (getSequence().size() <= 0)
+    {
+        return;
+    }
+    std::ofstream fs_out;
+    fs_out.open(file, std::ios::app);
+    fs_out << "total use after free sequence number is: " << getSequence().size() << endl;
+    for (string val : getSequence())
+    {
+        fs_out << val;
+    }
+    fs_out.close();
 }
 
 void UseProgSlice::getPath(const SVFGNode *node)
@@ -63,21 +82,24 @@ void UseProgSlice::putUAFResult(const SVFGNode *m, const SVFGNode *f, const SVFG
     cout << "malloc: " << m->toString() << endl;
     cout << "free: " << f->toString() << endl;
     cout << "use: " << u->toString() << endl;
-    // if (const SVFInstruction *mInst = SVFUtil::dyn_cast<SVFInstruction>(m->getValue()))
-    // {
-    //     const SVFBasicBlock *mBB = mInst->getParent();
-    //     cout << "malloc bb: " << mBB->toString() << endl;
-    // }
-    // if (const SVFInstruction *fInst = SVFUtil::dyn_cast<SVFInstruction>(f->getValue()))
-    // {
-    //     const SVFBasicBlock *fBB = fInst->getParent();
-    //     cout << "free bb: " << fBB->toString() << endl;
-    // }
-    // if (const SVFInstruction *uInst = SVFUtil::dyn_cast<SVFInstruction>(u->getValue()))
-    // {
-    //     const SVFBasicBlock *uBB = uInst->getParent();
-    //     cout << "use bb: " << uBB->toString() << endl;
-    // }
+    if (const SVFInstruction *mInst = SVFUtil::dyn_cast<SVFInstruction>(m->getValue()))
+    {
+        // const SVFBasicBlock *mBB = mInst->getParent();
+        // cout << "malloc bb: " << mBB->getSourceLoc() << endl;
+        cout << "malloc inst: " << mInst->getSourceLoc() << endl;
+    }
+    if (const SVFInstruction *fInst = SVFUtil::dyn_cast<SVFInstruction>(f->getValue()))
+    {
+        // const SVFBasicBlock *fBB = fInst->getParent();
+        // cout << "free bb: " << fBB->getSourceLoc() << endl;
+        cout << "free inst: " << fInst->getSourceLoc() << endl;
+    }
+    if (const SVFInstruction *uInst = SVFUtil::dyn_cast<SVFInstruction>(u->getValue()))
+    {
+        // const SVFBasicBlock *uBB = uInst->getParent();
+        // cout << "use bb: " << uBB->getSourceLoc() << endl;
+        cout << "use inst: " << uInst->getSourceLoc() << endl;
+    }
 }
 bool UseProgSlice::isBefore(const SVFGNode *src, const SVFGNode *dst, const SVFGNode *def)
 {
@@ -90,36 +112,52 @@ bool UseProgSlice::isBefore(const SVFGNode *src, const SVFGNode *dst, const SVFG
     const SVFInstruction *dstInst = SVFUtil::dyn_cast<SVFInstruction>(dst->getValue());
     const ICFGNode *dstIcfg = icfg->getICFGNode(dstInst);
 
-    SVF::FIFOWorkList<const ICFGNode *> worklist;
-    NodeBS visited;
+    const SVFInstruction *defInst = SVFUtil::dyn_cast<SVFInstruction>(def->getValue());
+    const ICFGNode *defIcfg = icfg->getICFGNode(defInst);
 
-    if (srcIcfg && dstIcfg)
+    // const ICFGNode *srcIcfg = src->getICFGNode();
+    // const ICFGNode *dstIcfg = dst->getICFGNode();
+    // const ICFGNode *defIcfg = def->getICFGNode();
+
+    // SVF::FIFOWorkList<const ICFGNode *> worklist;
+    // NodeBS visited;
+
+    if (srcIcfg && dstIcfg && defIcfg)
     {
         if (srcIcfg->getId() == dstIcfg->getId())
             return false;
-        worklist.push(srcIcfg);
-        visited.set(srcIcfg->getId());
-        while (!worklist.empty())
+        CallStack *callStack = new CallStack(srcIcfg);
+        if (CallStack *resultStack = CallStack::prosessReachable(callStack, dstIcfg->getId()))
         {
-            const ICFGNode *cur = worklist.pop();
-            if (cur->getId() == dstIcfg->getId())
+            if (!resultStack->isReached(defIcfg->getId()))
             {
-                if (isNotRedefine(srcIcfg, dstIcfg, def))
-                    return true;
-                else
-                    return false;
-            }
-            for (auto it = cur->getOutEdges().begin(); it != cur->getOutEdges().end(); it++)
-            {
-                const ICFGEdge *edge = (*it);
-                const ICFGNode *succ = edge->getDstNode();
-                if (!visited.test(succ->getId()))
-                {
-                    visited.set(succ->getId());
-                    worklist.push(succ);
-                }
+                // resultStack->printPath("icfg_path.txt");
+                return true;
             }
         }
+        // worklist.push(srcIcfg);
+        // visited.set(srcIcfg->getId());
+        // while (!worklist.empty())
+        // {
+        //     const ICFGNode *cur = worklist.pop();
+        //     if (cur->getId() == dstIcfg->getId())
+        //     {
+        //         if (isNotRedefine(srcIcfg, dstIcfg, def))
+        //             return true;
+        //         else
+        //             return false;
+        //     }
+        //     for (auto it = cur->getOutEdges().begin(); it != cur->getOutEdges().end(); it++)
+        //     {
+        //         const ICFGEdge *edge = (*it);
+        //         const ICFGNode *succ = edge->getDstNode();
+        //         if (!visited.test(succ->getId()))
+        //         {
+        //             visited.set(succ->getId());
+        //             worklist.push(succ);
+        //         }
+        //     }
+        // }
     }
     return false;
 }
@@ -226,7 +264,6 @@ List<const SVFGNode *> UseProgSlice::getCompareNodeList(const SVFGNode *dst)
 
     SVFIR *pag = PAG::getPAG();
     ICFG *icfg = pag->getICFG();
-
     const SVFInstruction *dstInst = SVFUtil::dyn_cast<SVFInstruction>(dst->getValue());
     const ICFGNode *dstIcfg = icfg->getICFGNode(dstInst);
 
@@ -273,4 +310,140 @@ List<const SVFGNode *> UseProgSlice::getCompareNodeList(const SVFGNode *dst)
         }
     }
     return list;
+}
+
+bool CallStack::testAddICFGNode(const ICFGNode *node)
+{
+    int id = node->getId();
+    if (isVisited(id))
+        return false;
+    if (const RetICFGNode *retNode = SVFUtil::dyn_cast<RetICFGNode>(node))
+    {
+        if (isStackEmpty())
+        {
+            return true;
+        }
+        const CallICFGNode *callNode = retNode->getCallICFGNode();
+        return getStackTop() == callNode->getId();
+    }
+    return true;
+}
+bool CallStack::addICFGNode(const ICFGNode *node)
+{
+    if (!testAddICFGNode(node))
+        return false;
+    addToVisited(node->getId());
+    setCurNode(node);
+    addToPath(node);
+    if (const CallICFGNode *callNode = SVFUtil::dyn_cast<CallICFGNode>(node))
+    {
+        pushToStack(callNode->getId());
+        addToVisited(callNode->getId());
+    }
+    if (const RetICFGNode *retNode = SVFUtil::dyn_cast<RetICFGNode>(node))
+    {
+        popFromStack();
+        addToVisited(retNode->getId());
+    }
+    return true;
+}
+list<const ICFGNode *> CallStack::findSucc()
+{
+    list<const ICFGNode *> res;
+    const ICFGNode *node = getCurNode();
+    for (auto it = node->getOutEdges().begin(); it != node->getOutEdges().end(); it++)
+    {
+        const ICFGEdge *edge = (*it);
+        const ICFGNode *succ = edge->getDstNode();
+        if (testAddICFGNode(succ))
+            res.push_back(succ);
+    }
+    return res;
+}
+void CallStack::printPath(string file)
+{
+    std::ofstream fs_out;
+    fs_out.open(file, std::ios::app);
+    fs_out << "-----print path begin!-----" << endl;
+    for (const ICFGNode *node : getPath())
+    {
+        fs_out << node->toString() << endl;
+    }
+    fs_out << "-----print path end!-----" << endl;
+    fs_out.close();
+}
+void CallStack::printCallPath(string file)
+{
+    std::ofstream fs_out;
+    fs_out.open(file, std::ios::app);
+    fs_out << "-----print call path begin!-----" << endl;
+    string functionName = "";
+    for (const ICFGNode *node : getPath())
+    {
+        if (const CallICFGNode *callNode = SVFUtil::dyn_cast<CallICFGNode>(node))
+        {
+
+            string curName = callNode->getFun()->getName();
+            if (functionName != curName)
+            {
+                functionName = curName;
+                fs_out << "call: " << curName << endl;
+            }
+        }
+        if (const RetICFGNode *retNode = SVFUtil::dyn_cast<RetICFGNode>(node))
+        {
+            string curName = retNode->getFun()->getName();
+            if (functionName != curName)
+            {
+                functionName = curName;
+                fs_out << "ret: " << curName << endl;
+            }
+        }
+    }
+    fs_out << "-----print call path end!-----" << endl;
+    fs_out.close();
+}
+CallStack *CallStack::prosessReachable(CallStack *cs, int dstId)
+{
+
+    SVF::FIFOWorkList<CallStack *> worklist;
+    worklist.push(cs);
+    CallStackVisited visited;
+    visited.addNode(cs);
+
+    while (!worklist.empty())
+    {
+        CallStack *callStack = worklist.pop();
+
+        while (true)
+        {
+            if (callStack->getCurNode()->getId() == dstId)
+            {
+                return callStack;
+            }
+            list<const ICFGNode *> succs = callStack->findSucc();
+            if (succs.size() == 0)
+            {
+                delete (callStack);
+                break;
+            }
+            for (auto it = succs.begin(); it != succs.end(); it++)
+            {
+                if (it == succs.begin())
+                    continue;
+                const ICFGNode *nextNode = (*it);
+                CallStack *nextStack = new CallStack(*callStack);
+                nextStack->addICFGNode(nextNode);
+                if (!visited.isVisited(nextStack))
+                {
+                    visited.addNode(nextStack);
+                    worklist.push(nextStack);
+                }
+                else
+                    delete (nextStack);
+            }
+            callStack->addICFGNode(succs.front());
+        }
+    }
+    return nullptr;
 }
